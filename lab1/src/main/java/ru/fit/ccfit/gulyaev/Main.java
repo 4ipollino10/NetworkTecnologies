@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Timer;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         String addr = scanner.next();
         Context context = new Context();
@@ -21,10 +21,13 @@ public class Main {
         Timer timer = new Timer(true);
         timer.scheduleAtFixedRate(usersChecker, 0, 4000);
         String endCommand = "";
-        while(!Objects.equals(endCommand, "end")){
+        while(!Objects.equals(endCommand, "e")){
             endCommand = scanner.next();
         }
+        timer.cancel();
         messageReceiver.changeThreadMode();
         messageSender.changeThreadMode();
+        receiverThread.join();
+        senderThread.join();
     }
 }

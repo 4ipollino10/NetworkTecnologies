@@ -45,6 +45,7 @@ public class MessageSender implements Runnable {
         } catch (IOException e) {
             e.printStackTrace();
         }
+        sendSocket.close();
     }
 
     public void changeThreadMode(){

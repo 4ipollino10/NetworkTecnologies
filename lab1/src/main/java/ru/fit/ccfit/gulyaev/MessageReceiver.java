@@ -37,11 +37,7 @@ public class MessageReceiver implements Runnable{
             }
             context.setUser(recv.getAddress().toString());
             System.out.println("receiver receive message from " + recv.getAddress() + " " + recv.getPort());
-            try {
-                sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
+
         }
 
         try {
@@ -49,9 +45,17 @@ public class MessageReceiver implements Runnable{
         } catch (IOException e) {
             e.printStackTrace();
         }
+        this.receiveSocket.close();
     }
 
     public void changeThreadMode(){
+        String message = "die insect";
+        DatagramPacket packet = new DatagramPacket(message.getBytes(), message.length(), this.group);
+        try{
+            this.receiveSocket.send(packet);
+        }catch (IOException e){
+            e.printStackTrace();
+        }
         this.isRunnable = false;
     }
 }
