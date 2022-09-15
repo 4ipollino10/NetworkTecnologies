@@ -12,19 +12,15 @@ public class Context {
         this.usersTable.put(addr, true);
     }
     public void checkUsers(){
-        for (Map.Entry<String, Boolean> entry : this.usersTable.entrySet()) {
-            if (entry.getValue()) {
-                this.usersTable.put(entry.getKey(), false);
+        for (String add : this.usersTable.keySet()) {
+            if (this.usersTable.get(add)) {
+                this.usersTable.put(add, false);
             } else {
-                deleteUser(entry.getKey());
-                System.out.println("USER " + entry.getKey() + " OTVALILSYA");
+                this.usersTable.remove(add);
+                System.out.println("USER " + add + " OTVALILSYA");
             }
         }
-    }
-
-    public void deleteUser(String addr){
-        this.usersTable.remove(addr);
-        System.out.println(addr + " otvalivsya");
+        System.out.println("!!!ATTENTION!!!\n" + "There are " + usersTable.size() + " copies of me\n" + "!!!ATTENTION!!!");
     }
 
 }
