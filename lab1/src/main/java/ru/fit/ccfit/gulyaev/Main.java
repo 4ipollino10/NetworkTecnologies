@@ -8,7 +8,7 @@ import java.util.Timer;
 public class Main {
     public static void main(String[] args) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        String addr = "FF0E:0:0:0:0:0:0:101";
+        String addr = args[0];
 
         Context context = new Context();
 

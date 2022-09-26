@@ -2,9 +2,10 @@ package ru.fit.ccfit.gulyaev;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Context {
-    private final HashMap<String, Boolean> usersTable = new HashMap<>();
+    private final Map<String, Boolean> usersTable = new ConcurrentHashMap<>();
 
 
 
