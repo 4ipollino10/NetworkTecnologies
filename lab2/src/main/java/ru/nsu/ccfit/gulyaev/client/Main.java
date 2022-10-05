@@ -10,7 +10,7 @@ public class Main {
         String host = "";
         int port = 4040;
 
-        String filePath = "D:\\work\\seti\\dope\\Task.dat";
+        String filePath = "D:\\work\\seti\\dope\\678.png";
 
         Path path = Paths.get(filePath);
 
@@ -22,6 +22,6 @@ public class Main {
 
         client.startClient();
 
-        System.out.println("Done");
+        System.out.println("bye bye");
     }
 }

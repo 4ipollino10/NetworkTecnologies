@@ -44,6 +44,8 @@ public class TCPClient {
             if (serverResponse.getResponseCode() == CodeHeader.FAILURE_REQUEST_CODE) {
                 System.out.println("Failed sending request to server, goodbye!");
                 return;
+            }else{
+                System.out.println("Request sent successfully now we gonna work");
             }
 
             int buffSize = serverResponse.getServerBuffSize();
@@ -59,8 +61,9 @@ public class TCPClient {
             if (serverResponse.getResponseCode() == CodeHeader.FAILURE_FILE_TRANSFER_CODE) {
                 System.out.println("Failed sending file to server, goodbye!");
                 return;
+            }else{
+                System.out.println("File sent successfully, nice)");
             }
-            System.out.println("super!");
         } catch (UnknownHostException e) {
             System.out.println("Whaaat? undefined host? dead??? inside?");
         } catch (ClassNotFoundException e) {
